@@ -39,7 +39,8 @@ def handle_audio_request():
 
     # yt-dlp configuration for downloading best audio and converting to mp3
     ydl_opts = {
-        'cookiefile': 'cookies.txt',  # <--- ADD THIS LINE HERE
+        'cookiefile': 'cookies.txt',
+        'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
         'format': 'bestaudio/best',
         'outtmpl': str(output_path),
         'postprocessors': [{
@@ -49,6 +50,7 @@ def handle_audio_request():
         }],
         'quiet': True
     }
+
 
 
     try:
