@@ -39,6 +39,7 @@ def handle_audio_request():
 
     # yt-dlp configuration for downloading best audio and converting to mp3
     ydl_opts = {
+        'cookiefile': 'cookies.txt',  # <--- ADD THIS LINE HERE
         'format': 'bestaudio/best',
         'outtmpl': str(output_path),
         'postprocessors': [{
@@ -48,6 +49,7 @@ def handle_audio_request():
         }],
         'quiet': True
     }
+
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
