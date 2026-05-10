@@ -39,17 +39,23 @@ def handle_audio_request():
 
     # yt-dlp configuration for downloading best audio and converting to mp3
     ydl_opts = {
-        'cookiefile': 'cookies.txt',
-        'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
-        'format': 'bestaudio/best',
-        'outtmpl': str(output_path),
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192'
-        }],
-        'quiet': True
-    }
+    'cookiefile': 'cookies.txt',
+    'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+    'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'nocheckcertificate': True,
+    'ignoreerrors': False,
+    'logtostderr': False,
+    'quiet': True,
+    'no_warnings': True,
+    'format': 'bestaudio/best',
+    'outtmpl': str(output_path),
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192'
+    }]
+}
+
 
 
 
